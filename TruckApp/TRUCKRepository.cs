@@ -20,6 +20,7 @@ namespace TruckApp
                 conn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
                 List<Truck> allTRUCKS = new List<Truck>();
+                var reviewRepo = new ReviewRepository();
                 while (reader.Read() == true)
                 {
                     var currentTRUCK = new Truck();
@@ -28,6 +29,7 @@ namespace TruckApp
                     currentTRUCK.Year = reader.GetInt32("YEAR");
                     currentTRUCK.ReviewID = reader.GetInt32("Review_ID");
                     currentTRUCK.ImageLink = reader.GetString("IMAGE");
+                    currentTRUCK.Review = reviewRepo.GetReviewsPerTruck(currentTRUCK.ID);
 
                     allTRUCKS.Add(currentTRUCK);
                 }
@@ -41,24 +43,27 @@ namespace TruckApp
 
             MySqlConnection conn = new MySqlConnection(connectionString);
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM Products WHERE ProductId = @id;";
+            cmd.CommandText = "SELECT * FROM TRUCKS WHERE ID = @id;";
             cmd.Parameters.AddWithValue("id", id);
 
             using (conn)
             {
                 conn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
-                Truck currentTruck = new Truck();
+                var currentTRUCK = new Truck();
+                var reviewRepo = new ReviewRepository();
 
                 while (reader.Read() == true)
                 {
-                    var currentTRUCK = new Truck();
-                    currentTRUCK.ID = reader.GetInt32("TRUCKID");
+                    
+                    currentTRUCK.ID = reader.GetInt32("ID");
                     currentTRUCK.Model = reader.GetString("MODEL");
                     currentTRUCK.Year = reader.GetInt32("YEAR");
-                    currentTRUCK.ReviewID = reader.GetInt32("ReviewID");
+                    currentTRUCK.ReviewID = reader.GetInt32("Review_ID");
+                    currentTRUCK.ImageLink = reader.GetString("IMAGE");
+                    currentTRUCK.Review = reviewRepo.GetReviewsPerTruck(currentTRUCK.ID);
                 }
-                return currentTruck;
+                return currentTRUCK;
             }
         }
     }

@@ -1,0 +1,20 @@
+﻿@model Truck
+
+<h3>@Model.Year @Model.Model</h3>
+
+<table class="table">
+    <tr>
+        <th>Truck ID</th>
+        <th></th>
+        <th>Year</th>
+        <th>Model</th>
+    </tr>
+
+    <tr>
+        <td>@Model.ID</td>
+         <td><a href="@Model.ImageLink"><img src="@Model.ImageLink" style="float:left;width:240px;height:80px;"></a></td>
+        <td>@Model.Year</td>
+        <td>@Model.Model</td>
+    </tr>
+    <tr>@Model.Review.REVIEW</tr>
+</table>

@@ -9,11 +9,11 @@
     @foreach(var truck in Model)
     {
         <tr>
-            <td>@truck.ID</td>
+            <td><a href="truck/ViewTRUCK/@truck.ID">@truck.ID</td>
             <td>@truck.Model</td>
             <td><a href="@truck.ImageLink"><img src="@truck.ImageLink" style="float:left;width:240px;height:80px;"></a></td>
             <td>@truck.Year</td>
-            <td>@truck.ReviewID</td>
+            <td>@truck.Review.REVIEW</td>
         </tr>
     }
 

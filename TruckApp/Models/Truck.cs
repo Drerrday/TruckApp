@@ -8,5 +8,6 @@ namespace TruckApp.Models
         public int Year { get; set; }
         public int ReviewID { get; set; }
         public string ImageLink { get; set; }
+        public Review Review { get; set; }
     }
 }

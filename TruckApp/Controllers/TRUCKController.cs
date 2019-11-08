@@ -19,12 +19,12 @@ namespace TruckApp.Controllers
         public IActionResult ViewTRUCK(int id)
         {
             var repo = new TRUCKRepository();
-            var truck = repo.GetTruck(id);
-            if (repo == null)
-            {
-                return View("TruckNotFound");
-            }
-            return View(truck);
+            var newTruck = repo.GetTruck(id);
+
+            //var newRepo = new ReviewRepository();
+            //var allReviews = newRepo.GetAllReviews();
+            
+            return View(newTruck);
         }
     }
 }

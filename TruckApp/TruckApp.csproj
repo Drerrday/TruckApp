@@ -10,11 +10,17 @@
 
   <ItemGroup>
     <Compile Remove="MakeRepository.cs" />
+    <Compile Remove="CategoryRepository.cs" />
+    <Compile Remove="DepartmentRepository.cs" />
+    <Compile Remove="Controllers\DepartmentController.cs" />
+    <Compile Remove="Controllers\ProductController.cs" />
+    <Compile Remove="Models\Departments.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.18" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Truck\" />
+    <Folder Include="Views\Review\" />
   </ItemGroup>
 </Project>

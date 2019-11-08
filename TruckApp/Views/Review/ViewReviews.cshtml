@@ -1,0 +1,14 @@
+﻿@model List<Review>
+
+<table class="table">
+    <tr>
+        <th>Review</th>
+    </tr>
+
+    @foreach(var review in Model)
+    {
+        <tr>
+            <td>@review.REVIEW</td>
+        </tr>
+    }
+</table>
