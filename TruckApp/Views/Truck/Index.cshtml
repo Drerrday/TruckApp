@@ -2,15 +2,18 @@
 
 <table class="table">
     <tr>
-        <th>Truck Model</th>
+        <th>Gallery</th>
         <th></th>
     </tr>
 
     @foreach(var truck in Model)
     {
         <tr>
+            <td>@truck.ID</td>
             <td>@truck.Model</td>
-            <td><a href="@truck.ImageLink"><img src="@truck.ImageLink" style="float:right;width:400px;height:400px;"></a></td>
+            <td><a href="@truck.ImageLink"><img src="@truck.ImageLink" style="float:left;width:240px;height:80px;"></a></td>
+            <td>@truck.Year</td>
+            <td>@truck.ReviewID</td>
         </tr>
     }
 
