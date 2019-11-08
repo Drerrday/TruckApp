@@ -1,34 +1,29 @@
-﻿@model TRUCK
+﻿@model Truck
 
-<h3>"@Model.Name" Info</h3>
+<h3>"@Model.Model" Info</h3>
 
 <table class="table">
     <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>CategoryID</th>
-        <th>OnSale</th>
-        <th>StockLevel</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>ReviewID</th>
     </tr>
-
     
         <tr>
             <td>@Model.ID</td>
-            <td>@Model.Name</td>
-            <td>@Model.Price</td>
-            <td>@Model.CategoryID</td>
-            <td>@Model.OnSale</td>
-            <td>@Model.StockLevel</td>
+            <td>@Model.Model</td>
+            <td>@Model.Year</td>
+            <td>@Model.ReviewID</td>
         </tr>
 </table>
 <div style="display:block">
-     <a href="/Product/UpdateProduct/@Model.ID">Update this Product</a>
+     <a href="/Truck/UpdateTruck/@Model.ID">Update this Truck</a>
 </div>
 <div style="display: block">
     @using (Html.BeginForm("DeleteProduct", "Product", "Post"))
     {
         <input type="hidden" asp-for="ID" value="@Model.ID" />
-        <input type="submit" onclick="return confirm('Deleteing this product is permenant; Are you sure?')" value="Delete this product" />
+        <input type="submit" onclick="return confirm('Deleteing this TRUCK is permenant; Are you sure?')" value="Delete this Truck" />
     }
 </div>
